@@ -1,0 +1,1 @@
+﻿This assembly is the main implementation of the RSCoreInterface.

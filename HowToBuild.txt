@@ -1,0 +1,16 @@
+Step 1 : Build SDK
+
+The SDK is a set of libraries. it contains :
+- RSCoreInterface
+- RSPluginInterface
+- RSCore
+
+Step 2 : Deploying the SDK
+
+Install the SDK both in the GAC and in a regular directory.
+- RSCore is to be deployed in a .\bin sub-directory
+- RSCoreInterface and RSPluginInterface are to be deployed in a .\lib sub-directory.
+
+Step 3 : Compile and deploy plugins
+
+Compile the RSPELoader and deploy in the .\Loaders sub-directory.

@@ -1,0 +1,1 @@
+﻿This assembly impelements a PE file loader for both 32 and 64 bits.
