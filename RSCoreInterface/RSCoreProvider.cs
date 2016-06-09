@@ -3,6 +3,10 @@ using System.Reflection;
 
 namespace RSCoreInterface
 {
+    /// <summary>This class is the initial interface for any program using
+    /// the suite. The program is expected to retrieve the <see cref="RSCore"/>
+    /// property which will deliver a concrete implementation of the suite.
+    /// </summary>
     public abstract class RSCoreProvider
     {
         protected RSCoreProvider()

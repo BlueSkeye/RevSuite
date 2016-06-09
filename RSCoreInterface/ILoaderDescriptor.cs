@@ -4,6 +4,11 @@ namespace RSCoreInterface
 {
     public interface ILoaderDescriptor
     {
+        /// <summary>Retrieve an instance of this loader. It is up to the core
+        /// engine to decide wether to instanciate a new one or to return an
+        /// already existing instance.</summary>
+        /// <returns>An instance of th loader this descriptor describes.</returns>
+        ILoader Get();
         /// <summary>A human redable short description of this kind of loaders.
         /// </summary>
         string Name { get; }

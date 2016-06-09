@@ -32,6 +32,11 @@ namespace RSPELoader
             get { return false; }
         }
 
+        ILoader ILoaderDescriptor.Get()
+        {
+            return (this.Instanciator)(null);
+        }
+
         private const string HumanReadableName = "PE Loader";
         private static PELoaderDescriptor _instance = new PELoaderDescriptor();
     }

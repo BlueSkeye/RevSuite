@@ -19,8 +19,47 @@ namespace RSConsole
         internal static void LoadModuleInRS(string tag, out ConsoleMenu newMenu)
         {
             newMenu = null;
-            Console.Write("Hit ENTER");
-            Console.ReadLine();
+            Console.Write(Messages.InputFilePath);
+            string candidatePath = Helpers.AnswerQuestionOrEscape();
+            FileInfo candidateFile = new FileInfo(candidatePath);
+            if (!candidateFile.Exists) {
+                Console.WriteLine(Messages.FileDoesntExist);
+                Console.Write("Hit ENTER");
+                Console.ReadLine();
+                return;
+            }
+            FileStream candidateStream;
+            try { candidateStream = File.Open(candidateFile.FullName, FileMode.Open, FileAccess.Read); }
+            catch (Exception e) {
+                Console.WriteLine(Messages.CantOpenFile, e.Message);
+                Console.Write("Hit ENTER");
+                Console.ReadLine();
+                return;
+            }
+            List<ILoader> validLoaders = new List<ILoader>();
+            foreach(ILoaderDescriptor descriptor in _rsCore.EnumerateKnownLoaders()) {
+                ILoader candidateLoader = descriptor.Get();
+                if (candidateLoader.CanLoad(candidateStream)) {
+                    validLoaders.Add(candidateLoader);
+                }
+            }
+            switch (validLoaders.Count) {
+                case 0:
+                    Console.WriteLine(Messages.NoSuitableLoaderFound);
+                    Console.Write("Hit ENTER");
+                    Console.ReadLine();
+                    return;
+                case 1:
+                    break;
+                default:
+                    Console.WriteLine(Messages.SeveralLoadersFound);
+                    Console.Write("Hit ENTER");
+                    Console.ReadLine();
+                    return;
+            }
+            _analyzedFile = candidateFile;
+            _analyzedStream = candidateStream;
+            validLoaders[0].Load(null, candidateStream);
             return;
         }
 
@@ -96,6 +135,10 @@ namespace RSConsole
         }
 
         private static FileInfo _analyzedFile;
+        /// <summary>This object lifetime must respect the contract for the
+        /// <see cref="Load"/> method from the <see cref="ILoader"/> interface.
+        /// </summary>
+        private static FileStream _analyzedStream;
         private static Stack<ConsoleMenu> _menus = new Stack<ConsoleMenu>();
         private static IRSCore _rsCore;
     }

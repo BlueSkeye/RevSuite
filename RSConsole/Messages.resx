@@ -123,11 +123,26 @@
   <data name="AnalyzedFileNameMustBeLastArgument" xml:space="preserve">
     <value>Analyzed file name must be the last arguument.</value>
   </data>
+  <data name="CantOpenFile" xml:space="preserve">
+    <value>Can't open file : {0}</value>
+  </data>
   <data name="EmptySwitchArgument" xml:space="preserve">
     <value>Switch name is missing on command line argument '-'.</value>
   </data>
+  <data name="FileDoesntExist" xml:space="preserve">
+    <value>File doesn't exist.</value>
+  </data>
+  <data name="InputFilePath" xml:space="preserve">
+    <value>Input file : </value>
+  </data>
   <data name="MissingAnalyzedFileNameMandatoryArgument" xml:space="preserve">
     <value>Mandatory analyzed fiule name argument is missing.</value>
+  </data>
+  <data name="NoSuitableLoaderFound" xml:space="preserve">
+    <value>No suitable loader was found for this file.</value>
+  </data>
+  <data name="SeveralLoadersFound" xml:space="preserve">
+    <value>Several loaders were found for this file. Can't disambiguate.</value>
   </data>
   <data name="UnableToOpenAnalyzedFile" xml:space="preserve">
     <value>Unable to open file '{0}'\r\nError : {1}</value>

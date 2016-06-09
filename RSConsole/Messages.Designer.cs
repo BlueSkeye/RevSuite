@@ -79,6 +79,15 @@ namespace RSConsole {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Can&apos;t open file : {0}.
+        /// </summary>
+        internal static string CantOpenFile {
+            get {
+                return ResourceManager.GetString("CantOpenFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Switch name is missing on command line argument &apos;-&apos;..
         /// </summary>
         internal static string EmptySwitchArgument {
@@ -88,11 +97,47 @@ namespace RSConsole {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à File doesn&apos;t exist..
+        /// </summary>
+        internal static string FileDoesntExist {
+            get {
+                return ResourceManager.GetString("FileDoesntExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Input file : .
+        /// </summary>
+        internal static string InputFilePath {
+            get {
+                return ResourceManager.GetString("InputFilePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Mandatory analyzed fiule name argument is missing..
         /// </summary>
         internal static string MissingAnalyzedFileNameMandatoryArgument {
             get {
                 return ResourceManager.GetString("MissingAnalyzedFileNameMandatoryArgument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No suitable loader was found for this file..
+        /// </summary>
+        internal static string NoSuitableLoaderFound {
+            get {
+                return ResourceManager.GetString("NoSuitableLoaderFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Several loaders were found for this file. Can&apos;t disambiguate..
+        /// </summary>
+        internal static string SeveralLoadersFound {
+            get {
+                return ResourceManager.GetString("SeveralLoadersFound", resourceCulture);
             }
         }
         

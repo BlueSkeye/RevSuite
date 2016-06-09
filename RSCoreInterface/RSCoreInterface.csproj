@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="Endianess.cs" />
     <Compile Include="IAddressSpace.cs" />
+    <Compile Include="IAddressSpaceDescriptor.cs" />
     <Compile Include="ILoadedModule.cs" />
     <Compile Include="ILoader.cs" />
     <Compile Include="ILoaderDescriptor.cs" />
